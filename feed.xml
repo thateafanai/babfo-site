@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>Be A Blessing For Other</title>
+    <link href="https://yourusername.github.io/babfo-site/feed.xml" rel="self" />
+    <link href="https://yourusername.github.io/babfo-site" />
+    <updated>2025-04-14T21:30:44+05:30</updated>
+    <author>
+        <name>Thatea Fanai</name>
+    </author>
+    <id>https://yourusername.github.io/babfo-site</id>
+
+    <entry>
+        <title>BE A BLESSING FOR OTHERS</title>
+        <author>
+            <name>Thatea Fanai</name>
+        </author>
+        <link href="https://yourusername.github.io/babfo-site/be-a-blessing-for-others.html"/>
+        <id>https://yourusername.github.io/babfo-site/be-a-blessing-for-others.html</id>
+
+        <updated>2025-04-14T21:30:44+05:30</updated>
+            <summary></summary>
+        <content></content>
+    </entry>
+</feed>
