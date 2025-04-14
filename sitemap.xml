@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="https://yourusername.github.io/babfo-site/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://babfo.org/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
-<loc>https://yourusername.github.io/babfo-site/</loc>
+<loc>https://babfo.org/</loc>
 </url>
 <url>
-<loc>https://yourusername.github.io/babfo-site/be-a-blessing-for-others/</loc>
+<loc>https://babfo.org/be-a-blessing-for-others/</loc>
 <lastmod>2025-04-14T23:33:01+05:30</lastmod>
 <image:image>
-<image:loc>https://yourusername.github.io/babfo-site/media/posts/1/1.jpg</image:loc>
+<image:loc>https://babfo.org/media/posts/1/1.jpg</image:loc>
 <image:title><![CDATA[]]></image:title>
 </image:image>
 </url>

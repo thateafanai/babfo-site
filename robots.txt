@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://yourusername.github.io/babfo-site/sitemap.xml
+Sitemap: https://babfo.org/sitemap.xml
