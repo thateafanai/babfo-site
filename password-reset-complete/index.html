@@ -1,3 +1,66 @@
-<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Password Reset Complete - BABFO (Be A Blessing For Others)</title><meta name="description" content="🏛️ Password Reset Complete I password thlak a ni tawh e! Application&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://babfo.org/password-reset-complete/"><link rel="alternate" type="application/atom+xml" href="https://babfo.org/feed.xml" title="BABFO (Be A Blessing For Others) - RSS"><link rel="alternate" type="application/json" href="https://babfo.org/feed.json" title="BABFO (Be A Blessing For Others) - JSON"><meta property="og:title" content="Password Reset Complete"><meta property="og:site_name" content="BABFO (Be A Blessing For Others)"><meta property="og:description" content="🏛️ Password Reset Complete I password thlak a ni tawh e! Application&hellip;"><meta property="og:url" content="https://babfo.org/password-reset-complete/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://babfo.org/assets/css/style.css?v=d43d2f7d9371f0cdd77625621254d1dd"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://babfo.org/password-reset-complete/"},"headline":"Password Reset Complete","datePublished":"2025-09-12T11:37+05:30","dateModified":"2025-09-13T11:30+05:30","description":"🏛️ Password Reset Complete I password thlak a ni tawh e! Application&hellip;","author":{"@type":"Person","name":"Thatea Fanai","url":"https://babfo.org/authors/thatea-fanai/"},"publisher":{"@type":"Organization","name":"Thatea Fanai"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Password Reset Complete - BABFO</title><meta name="description" content="Enter your new password below:"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://babfo.org/password-reset-complete/"><link rel="alternate" type="application/atom+xml" href="https://babfo.org/feed.xml" title="BABFO - RSS"><link rel="alternate" type="application/json" href="https://babfo.org/feed.json" title="BABFO - JSON"><meta property="og:title" content="Password Reset Complete"><meta property="og:site_name" content="BABFO"><meta property="og:description" content="Enter your new password below:"><meta property="og:url" content="https://babfo.org/password-reset-complete/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://babfo.org/assets/css/style.css?v=d43d2f7d9371f0cdd77625621254d1dd"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://babfo.org/password-reset-complete/"},"headline":"Password Reset Complete","datePublished":"2025-09-12T11:37+05:30","dateModified":"2025-09-13T17:58+05:30","description":"Enter your new password below:","author":{"@type":"Person","name":"Thatea Fanai","url":"https://babfo.org/authors/thatea-fanai/"},"publisher":{"@type":"Organization","name":"Thatea Fanai"}}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript></head><body class="page-template"><div class="container"><header class="header" id="js-header"><a href="https://babfo.org/" class="logo">BABFO (Be A Blessing For Others)</a></header><main class="page"><article class="content wrapper"><header class="hero"><h1 class="content__title">Password Reset Complete</h1></header><div class="content__entry"><div class="container"><div class="logo">🏛️</div><h1>Password Reset Complete</h1><p class="success">I password thlak a ni tawh e!</p><p>Application ah kalin i password thar hmangin i lut leh thei tawh ang.</p><p style="margin-top: 30px; font-size: 14px; color: #666;">Thank you for using BCM Missionary Report.</p></div></div></article></main><footer class="footer"><div class="footer__copyright">Powered by Publii</div></footer></div><script defer="defer" src="https://babfo.org/assets/js/scripts.min.js?v=4268bfae06e330d473c424d50f09abda"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.navbar'};</script><script>/*<![CDATA[*/var images=document.querySelectorAll("img[loading]");for(var i=0;i<images.length;i++){if(images[i].complete){images[i].classList.add("is-loaded")}else{images[i].addEventListener("load",function(){this.classList.add("is-loaded")},false)}};/*]]>*/</script></body></html>
+                }</style></noscript></head><body class="page-template"><div class="container"><header class="header" id="js-header"><a href="https://babfo.org/" class="logo">BABFO</a></header><main class="page"><article class="content wrapper"><header class="hero"><h1 class="content__title">Password Reset Complete</h1></header><div class="content__entry"><p><script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script><script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script></p><div class="container"><div class="logo"> </div><h1>Reset Your Password</h1><p>Enter your new password below:</p><div id="reset-form"><div class="form-group"><label for="new-password">New Password:</label> <input id="new-password" type="password" placeholder="Enter new password"></div><div class="form-group"><label for="confirm-password">Confirm Password:</label> <input id="confirm-password" type="password" placeholder="Confirm new password"></div><button id="reset-btn" class="btn">Reset Password</button></div><div id="message"></div></div><p><script>// Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "bcm-missionary-report-li-39d80.firebaseapp.com",
+            projectId: "bcm-missionary-report-li-39d80",
+            // Add other config values
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Get action code from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const actionCode = urlParams.get('oobCode');
+        const mode = urlParams.get('mode');
+
+        if (!actionCode || mode !== 'resetPassword') {
+            showMessage('Invalid reset link. Please request a new password reset.', 'error');
+            document.getElementById('reset-form').style.display = 'none';
+        }
+
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = text;
+            messageDiv.className = 'message ' + type;
+        }
+
+        function resetPassword() {
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const resetBtn = document.getElementById('reset-btn');
+
+            if (!newPassword || newPassword.length < 6) {
+                showMessage('Password must be at least 6 characters long.', 'error');
+                return;
+            }
+
+            if (newPassword !== confirmPassword) {
+                showMessage('Passwords do not match.', 'error');
+                return;
+            }
+
+            resetBtn.disabled = true;
+            showMessage('Resetting password...', 'loading');
+
+            auth.confirmPasswordReset(actionCode, newPassword)
+                .then(() => {
+                    showMessage('Password reset successful! You can now use your new password to log in to the BCM Missionary Report app.', 'success');
+                    document.getElementById('reset-form').style.display = 'none';
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    showMessage('Error resetting password: ' + error.message, 'error');
+                    resetBtn.disabled = false;
+                });
+        }
+
+        // Handle Enter key
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                resetPassword();
+            }
+        });</script></p></div></article></main><footer class="footer"><div class="footer__copyright">Powered by Publii</div></footer></div><script defer="defer" src="https://babfo.org/assets/js/scripts.min.js?v=4268bfae06e330d473c424d50f09abda"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.navbar'};</script><script>/*<![CDATA[*/var images=document.querySelectorAll("img[loading]");for(var i=0;i<images.length;i++){if(images[i].complete){images[i].classList.add("is-loaded")}else{images[i].addEventListener("load",function(){this.classList.add("is-loaded")},false)}};/*]]>*/</script></body></html>
