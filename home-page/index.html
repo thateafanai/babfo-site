@@ -1,170 +1,253 @@
 <!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Blog Pages - BABFO</title><meta name="description" content="Insights &amp; Stories Welcome to our blog, where we share updates from the field, insights on community development, and stories of transformation. Each post represents our commitment to transparency and knowledge sharing in the pursuit of positive change."><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://babfo.org/home-page/"><link rel="alternate" type="application/atom+xml" href="https://babfo.org/feed.xml" title="BABFO - RSS"><link rel="alternate" type="application/json" href="https://babfo.org/feed.json" title="BABFO - JSON"><meta property="og:title" content="Blog Pages"><meta property="og:image" content="https://babfo.org/media/website/babfo-logo.png"><meta property="og:image:width" content="500"><meta property="og:image:height" content="500"><meta property="og:site_name" content="BABFO"><meta property="og:description" content="Insights &amp; Stories Welcome to our blog, where we share updates from the field, insights on community development, and stories of transformation. Each post represents our commitment to transparency and knowledge sharing in the pursuit of positive change."><meta property="og:url" content="https://babfo.org/home-page/"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://babfo.org/media/website/Favicon.png" type="image/png"><link rel="stylesheet" href="https://babfo.org/assets/css/style.css?v=843509645c72f0de177026f61b0c1630"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://babfo.org/home-page/"},"headline":"Blog Pages","datePublished":"2025-09-16T11:58+05:30","dateModified":"2025-09-16T21:45+05:30","image":{"@type":"ImageObject","url":"https://babfo.org/media/website/babfo-logo.png","height":500,"width":500},"description":"Insights &amp; Stories Welcome to our blog, where we share updates from the field, insights on community development, and stories of transformation. Each post represents our commitment to transparency and knowledge sharing in the pursuit of positive change.","author":{"@type":"Person","name":"Thatea Fanai","url":"https://babfo.org/authors/thatea-fanai/"},"publisher":{"@type":"Organization","name":"Thatea Fanai","logo":{"@type":"ImageObject","url":"https://babfo.org/media/website/babfo-logo.png","height":500,"width":500}}}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript><style>/* Custom Header Styles */
-.babfo-header {
-  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-  height: 70px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+                }</style></noscript><style>/* Header styling */
+.header,
+.site-header,
+header,
+.navbar,
+.top-bar {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%) !important;
+  height: 70px !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
 }
 
-.babfo-header-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Header container - FIXED: Logo right, menu left */
+.header .container,
+.site-header .container,
+.header-wrapper,
+.header-inner,
+.navbar-brand,
+.site-header-wrapper {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important; /* CHANGED: Space between for logo right */
+  align-items: center !important;
+  width: 100% !important;
+  position: relative !important;
+  flex-direction: row-reverse !important; /* ADDED: Reverse order - logo goes right */
 }
 
-.babfo-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
+/* Logo section - MOVED TO RIGHT */
+.logo,
+.site-logo,
+.brand,
+.navbar-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+  flex: 0 0 auto !important;
+  order: 2 !important; /* ADDED: Force logo to right */
 }
 
-.babfo-logo img {
-  max-height: 45px;
-  width: auto;
+.logo img,
+.site-logo img,
+.brand img,
+.navbar-brand img {
+  max-height: 50px !important;
+  width: auto !important;
+  object-fit: contain !important;
 }
 
-.babfo-logo-text {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: white;
-  letter-spacing: -0.5px;
-  text-decoration: none;
+/* BABFO text - On the right with logo */
+.site-title,
+.logo-text,
+.brand-text,
+.navbar-brand span,
+.site-name {
+  font-size: 1.8rem !important;
+  font-weight: 800 !important;
+  color: white !important;
+  letter-spacing: -0.5px !important;
+  text-decoration: none !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
 }
 
-.babfo-nav {
-  display: flex;
-  gap: 0.5rem;
-  list-style: none;
+.site-title a,
+.logo-text a,
+.brand-text a {
+  color: white !important;
+  text-decoration: none !important;
 }
 
-.babfo-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 25px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+/* Navigation - MOVED TO LEFT */
+.nav,
+.navigation,
+.menu,
+.navbar-nav,
+.header-menu {
+  display: flex !important;
+  gap: 0.5rem !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 0 auto !important;
+  order: 1 !important; /* ADDED: Force menu to left */
 }
 
-.babfo-nav a:hover {
-  background: rgba(255, 255, 255, 0.2);
+.nav li,
+.navigation li,
+.menu li,
+.navbar-nav li {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.babfo-mobile-menu {
-  display: none;
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
-  border-radius: 8px;
-  padding: 8px;
-  cursor: pointer;
-  width: 45px;
-  height: 45px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+.nav a,
+.navigation a,
+.menu a,
+.navbar-nav a {
+  color: white !important;
+  text-decoration: none !important;
+  padding: 0.6rem 1.5rem !important;
+  border-radius: 25px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  display: block !important;
+  white-space: nowrap !important;
 }
 
-.babfo-mobile-menu span {
-  display: block;
-  width: 22px;
-  height: 3px;
-  background: #4a90e2;
-  margin: 3px 0;
-  border-radius: 3px;
-  transition: all 0.3s ease;
+.nav a:hover,
+.navigation a:hover,
+.menu a:hover,
+.navbar-nav a:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
 }
 
-body {
-  padding-top: 70px !important;
-}
-
-/* Hide original theme header */
-.header, .site-header, header {
+/* HIDE PAGE NAMES - FIXED: Remove overlapping page titles */
+.page-title,
+.entry-title,
+.post-title,
+h1.title,
+.article-title,
+.hero-title {
   display: none !important;
 }
 
+/* Mobile menu button */
+.mobile-menu,
+.menu-toggle,
+.hamburger,
+.navbar-toggle,
+.menu-btn {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  cursor: pointer !important;
+  width: 45px !important;
+  height: 45px !important;
+  display: none !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+  position: absolute !important;
+  left: 2rem !important; /* CHANGED: Mobile menu on left */
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.mobile-menu span,
+.menu-toggle span,
+.hamburger span {
+  display: block !important;
+  width: 22px !important;
+  height: 3px !important;
+  background: #4a90e2 !important;
+  margin: 2px 0 !important;
+  border-radius: 3px !important;
+}
+
+/* Body spacing - FIXED: More space to prevent overlap */
+body {
+  padding-top: 90px !important; /* INCREASED: More space */
+  margin-top: 0 !important;
+}
+
+.main,
+.content,
+.site-content {
+  margin-top: 0 !important;
+  padding-top: 2rem !important;
+}
+
+/* Mobile responsive */
 @media (max-width: 768px) {
-  .babfo-mobile-menu { display: flex; }
-  .babfo-nav { display: none; }
-  .babfo-logo-text { font-size: 1.5rem; }
-}
-
-.babfo-mobile-nav {
-  display: none;
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  z-index: 999;
-}
-
-.babfo-mobile-nav.active { display: block; }
-.babfo-mobile-nav a {
-  display: block;
-  padding: 1rem 2rem;
-  color: #333;
-  text-decoration: none;
-  border-bottom: 1px solid #eee;
-}</style><script>document.addEventListener('DOMContentLoaded', function() {
-  // Create the header HTML
-  const headerHTML = `
-    <header class="babfo-header">
-      <div class="babfo-header-inner">
-        <a href="/" class="babfo-logo">
-          <img src="https://babfo.org/media/website/babfo-logo.png" alt="BABFO Logo">
-          <span class="babfo-logo-text">BABFO</span>
-        </a>
-        
-        <nav class="babfo-nav">
-          <a href="/">Home</a>
-          <a href="/about/">About</a>
-          <a href="/home-page/">Blog</a>
-          <a href="/privacy-policy/">Privacy</a>
-        </nav>
-        
-        <button class="babfo-mobile-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </header>
-    
-    <div class="babfo-mobile-nav">
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/home-page/">Blog</a>
-      <a href="/privacy-policy/">Privacy</a>
-    </div>
-  `;
-  
-  // Insert header at the beginning of body
-  document.body.insertAdjacentHTML('afterbegin', headerHTML);
-  
-  // Mobile menu functionality
-  const mobileMenuBtn = document.querySelector('.babfo-mobile-menu');
-  const mobileNav = document.querySelector('.babfo-mobile-nav');
-  
-  if (mobileMenuBtn && mobileNav) {
-    mobileMenuBtn.addEventListener('click', function() {
-      mobileNav.classList.toggle('active');
-    });
+  .mobile-menu,
+  .menu-toggle,
+  .hamburger,
+  .navbar-toggle,
+  .menu-btn {
+    display: flex !important;
   }
-});</script></head><body class="page-template"><header class="top js-header"><a class="logo" href="https://babfo.org/"><img src="https://babfo.org/media/website/babfo-logo.png" alt="BABFO" width="500" height="500"></a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://babfo.org/" target="_self">Home</a></li><li><a href="https://babfo.org/about/" target="_self">About</a></li><li class="active"><a href="https://babfo.org/home-page/" target="_self">Blog</a></li></ul></nav></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content hero__content--centered"><div class="wrapper"><h1>Blog Pages</h1></div></header></div><div class="entry-wrapper content__entry"><h3 class="text-lg font-bold text-text-100 mt-1 -mb-1.5">Insights &amp; Stories</h3><p class="whitespace-normal break-words">Welcome to our blog, where we share updates from the field, insights on community development, and stories of transformation. Each post represents our commitment to transparency and knowledge sharing in the pursuit of positive change.</p></div></article></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Thank you for visiting - Be A Blessings For Others</p></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://babfo.org/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://babfo.org/assets/js/scripts.min.js?v=700105c316933a8202041b6415abb233"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
+  
+  .nav,
+  .navigation,
+  .menu,
+  .navbar-nav {
+    display: none !important;
+  }
+  
+  .site-title,
+  .logo-text {
+    font-size: 1.4rem !important;
+  }
+  
+  .logo img,
+  .site-logo img {
+    max-height: 40px !important;
+  }
+  
+  .header .container,
+  .site-header .container {
+    padding-left: 5rem !important; /* CHANGED: Space for left hamburger */
+  }
+}
+
+/* Ensure header is always visible */
+.header,
+.site-header {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Force hamburger to appear on left for mobile */
+@media (max-width: 768px) {
+  .header::after,
+  .site-header::after {
+    content: '☰' !important;
+    position: absolute !important;
+    left: 2rem !important; /* CHANGED: Left side */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #4a90e2 !important;
+    width: 45px !important;
+    height: 45px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 8px !important;
+    font-size: 1.5rem !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+    z-index: 1001 !important;
+  }
+}</style></head><body class="page-template"><header class="top js-header"><a class="logo" href="https://babfo.org/"><img src="https://babfo.org/media/website/babfo-logo.png" alt="BABFO" width="500" height="500"></a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://babfo.org/" target="_self">Home</a></li><li><a href="https://babfo.org/about/" target="_self">About</a></li><li class="active"><a href="https://babfo.org/home-page/" target="_self">Blog</a></li></ul></nav></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content hero__content--centered"><div class="wrapper"><h1>Blog Pages</h1></div></header></div><div class="entry-wrapper content__entry"><h3 class="text-lg font-bold text-text-100 mt-1 -mb-1.5">Insights &amp; Stories</h3><p class="whitespace-normal break-words">Welcome to our blog, where we share updates from the field, insights on community development, and stories of transformation. Each post represents our commitment to transparency and knowledge sharing in the pursuit of positive change.</p></div></article></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Thank you for visiting - Be A Blessings For Others</p></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://babfo.org/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://babfo.org/assets/js/scripts.min.js?v=700105c316933a8202041b6415abb233"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {
                 images[i].classList.add('is-loaded');
