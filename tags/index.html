@@ -3,9 +3,7 @@
                 }</style></noscript><style>/* Header styling */
 .header,
 .site-header,
-header,
-.navbar,
-.top-bar {
+header {
   background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%) !important;
   height: 70px !important;
   position: fixed !important;
@@ -14,119 +12,104 @@ header,
   right: 0 !important;
   z-index: 1000 !important;
   box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important;
-  display: flex !important;
-  align-items: center !important;
-  padding: 0 !important;
 }
 
-/* Header container - FIXED: Logo right, menu left */
-.header .container,
-.site-header .container,
-.header-wrapper,
-.header-inner,
-.navbar-brand,
-.site-header-wrapper {
+/* FIXED: Custom header layout - Logo LEFT, Menu RIGHT */
+.babfo-custom-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
   max-width: 1280px !important;
   margin: 0 auto !important;
   padding: 0 2rem !important;
-  height: 100% !important;
-  display: flex !important;
-  justify-content: space-between !important; /* CHANGED: Space between for logo right */
-  align-items: center !important;
+  height: 70px !important;
   width: 100% !important;
-  position: relative !important;
-  flex-direction: row-reverse !important; /* ADDED: Reverse order - logo goes right */
 }
 
-/* Logo section - MOVED TO RIGHT */
-.logo,
-.site-logo,
-.brand,
-.navbar-brand {
+/* FIXED: Logo section on LEFT */
+.babfo-logo-left {
   display: flex !important;
   align-items: center !important;
   gap: 15px !important;
   flex: 0 0 auto !important;
-  order: 2 !important; /* ADDED: Force logo to right */
+  order: 1 !important; /* Logo stays on left */
 }
 
-.logo img,
-.site-logo img,
-.brand img,
-.navbar-brand img {
+.babfo-logo-left img {
   max-height: 50px !important;
   width: auto !important;
   object-fit: contain !important;
 }
 
-/* BABFO text - On the right with logo */
-.site-title,
-.logo-text,
-.brand-text,
-.navbar-brand span,
-.site-name {
+.babfo-logo-text {
   font-size: 1.8rem !important;
   font-weight: 800 !important;
   color: white !important;
-  letter-spacing: -0.5px !important;
   text-decoration: none !important;
   margin: 0 !important;
   white-space: nowrap !important;
 }
 
-.site-title a,
-.logo-text a,
-.brand-text a {
-  color: white !important;
-  text-decoration: none !important;
-}
-
-/* Navigation - MOVED TO LEFT */
-.nav,
-.navigation,
-.menu,
-.navbar-nav,
-.header-menu {
+/* FIXED: Menu on RIGHT */
+.babfo-menu-right {
   display: flex !important;
   gap: 0.5rem !important;
   list-style: none !important;
   margin: 0 !important;
   padding: 0 !important;
   flex: 0 0 auto !important;
-  order: 1 !important; /* ADDED: Force menu to left */
+  order: 3 !important; /* Menu stays on right */
+  margin-left: auto !important; /* Push to right edge */
 }
 
-.nav li,
-.navigation li,
-.menu li,
-.navbar-nav li {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.nav a,
-.navigation a,
-.menu a,
-.navbar-nav a {
+.babfo-menu-right a {
   color: white !important;
   text-decoration: none !important;
   padding: 0.6rem 1.5rem !important;
   border-radius: 25px !important;
   font-weight: 500 !important;
   transition: all 0.3s ease !important;
-  display: block !important;
   white-space: nowrap !important;
 }
 
-.nav a:hover,
-.navigation a:hover,
-.menu a:hover,
-.navbar-nav a:hover {
+.babfo-menu-right a:hover {
   background: rgba(255, 255, 255, 0.2) !important;
-  color: white !important;
 }
 
-/* HIDE PAGE NAMES - FIXED: Remove overlapping page titles */
+/* FIXED: Mobile hamburger menu - positioned on RIGHT for mobile */
+.babfo-mobile-menu {
+  display: none !important;
+  flex-direction: column !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  width: 45px !important;
+  height: 45px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+  order: 3 !important; /* On right side for mobile */
+  margin-left: auto !important;
+}
+
+.babfo-mobile-menu span {
+  width: 22px !important;
+  height: 3px !important;
+  background: #4a90e2 !important;
+  margin: 2px 0 !important;
+  border-radius: 3px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Hide original header content */
+.header > *:not(.babfo-custom-header),
+.site-header > *:not(.babfo-custom-header) {
+  display: none !important;
+}
+
+/* Hide page titles that might appear in header area */
 .page-title,
 .entry-title,
 .post-title,
@@ -136,44 +119,9 @@ h1.title,
   display: none !important;
 }
 
-/* Mobile menu button */
-.mobile-menu,
-.menu-toggle,
-.hamburger,
-.navbar-toggle,
-.menu-btn {
-  background: rgba(255, 255, 255, 0.9) !important;
-  border: none !important;
-  border-radius: 8px !important;
-  padding: 8px !important;
-  cursor: pointer !important;
-  width: 45px !important;
-  height: 45px !important;
-  display: none !important;
-  justify-content: center !important;
-  align-items: center !important;
-  flex-direction: column !important;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
-  position: absolute !important;
-  left: 2rem !important; /* CHANGED: Mobile menu on left */
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-}
-
-.mobile-menu span,
-.menu-toggle span,
-.hamburger span {
-  display: block !important;
-  width: 22px !important;
-  height: 3px !important;
-  background: #4a90e2 !important;
-  margin: 2px 0 !important;
-  border-radius: 3px !important;
-}
-
-/* Body spacing - FIXED: More space to prevent overlap */
+/* Body spacing to account for fixed header */
 body {
-  padding-top: 90px !important; /* INCREASED: More space */
+  padding-top: 70px !important;
   margin-top: 0 !important;
 }
 
@@ -184,70 +132,103 @@ body {
   padding-top: 2rem !important;
 }
 
-/* Mobile responsive */
+/* FIXED: Mobile responsive layout */
 @media (max-width: 768px) {
-  .mobile-menu,
-  .menu-toggle,
-  .hamburger,
-  .navbar-toggle,
-  .menu-btn {
+  .babfo-custom-header {
+    padding: 0 1rem !important;
+  }
+  
+  /* Show hamburger menu on RIGHT */
+  .babfo-mobile-menu {
     display: flex !important;
   }
   
-  .nav,
-  .navigation,
-  .menu,
-  .navbar-nav {
+  /* Hide desktop menu */
+  .babfo-menu-right {
     display: none !important;
   }
   
-  .site-title,
-  .logo-text {
+  /* Adjust logo size for mobile */
+  .babfo-logo-text {
     font-size: 1.4rem !important;
   }
   
-  .logo img,
-  .site-logo img {
+  .babfo-logo-left img {
     max-height: 40px !important;
   }
   
-  .header .container,
-  .site-header .container {
-    padding-left: 5rem !important; /* CHANGED: Space for left hamburger */
+  /* Ensure proper spacing between logo and hamburger */
+  .babfo-mobile-menu {
+    margin-left: auto !important;
   }
 }
 
 /* Ensure header is always visible */
 .header,
 .site-header {
-  display: flex !important;
+  display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-}
-
-/* Force hamburger to appear on left for mobile */
-@media (max-width: 768px) {
-  .header::after,
-  .site-header::after {
-    content: '☰' !important;
-    position: absolute !important;
-    left: 2rem !important; /* CHANGED: Left side */
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    background: rgba(255, 255, 255, 0.9) !important;
-    color: #4a90e2 !important;
-    width: 45px !important;
-    height: 45px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    border-radius: 8px !important;
-    font-size: 1.5rem !important;
-    cursor: pointer !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
-    z-index: 1001 !important;
-  }
-}</style></head><body class="tags-template"><header class="top js-header"><a class="logo" href="https://babfo.org/"><img src="https://babfo.org/media/website/babfo-logo.png" alt="BABFO" width="500" height="500"></a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://babfo.org/" target="_self">Home</a></li><li><a href="https://babfo.org/about/" target="_self">About</a></li><li><a href="https://babfo.org/home-page/" target="_self">Blog</a></li></ul></nav></header><main class="page page--tags"><div class="hero hero--noimage"><header class="hero__content hero__content--centered"><div class="wrapper"><h1>Tags</h1><p class="page__desc">Collection of all 0 tags</p></div></header></div><div class="wrapper"><ul class="feed feed--grid"></ul></div></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Thank you for visiting - Be A Blessings For Others</p></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://babfo.org/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://babfo.org/assets/js/scripts.min.js?v=700105c316933a8202041b6415abb233"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
+}</style><script>document.addEventListener('DOMContentLoaded', function() {
+  // Wait a bit for page to load
+  setTimeout(function() {
+    // Find the header
+    const header = document.querySelector('.header, .site-header, header');
+    
+    if (header) {
+      // Clear existing content
+      header.innerHTML = '';
+      
+      // Create new header structure
+      const customHeader = document.createElement('div');
+      customHeader.className = 'babfo-custom-header';
+      
+      // Create logo section (LEFT side)
+      const logoLeft = document.createElement('div');
+      logoLeft.className = 'babfo-logo-left';
+      logoLeft.innerHTML = `
+        <img src="https://babfo.org/media/website/babfo-logo.png" alt="BABFO Logo">
+        <a href="/" class="babfo-logo-text">BABFO</a>
+      `;
+      
+      // Create desktop menu (RIGHT side)
+      const menuRight = document.createElement('div');
+      menuRight.className = 'babfo-menu-right';
+      menuRight.innerHTML = `
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+      `;
+      
+      // Create mobile menu button (will be on RIGHT in mobile)
+      const mobileMenu = document.createElement('button');
+      mobileMenu.className = 'babfo-mobile-menu';
+      mobileMenu.innerHTML = `
+        <span></span>
+        <span></span>
+        <span></span>
+      `;
+      
+      // Add elements to header in correct order
+      customHeader.appendChild(logoLeft);
+      customHeader.appendChild(menuRight);
+      customHeader.appendChild(mobileMenu);
+      
+      // Insert into header
+      header.appendChild(customHeader);
+      
+      // Add mobile menu click functionality (optional)
+      mobileMenu.addEventListener('click', function() {
+        // Add your mobile menu toggle logic here
+        console.log('Mobile menu clicked');
+      });
+      
+      console.log('BABFO Header: Successfully created custom header layout');
+    } else {
+      console.log('BABFO Header: No header element found');
+    }
+  }, 100);
+});</script></head><body class="tags-template"><header class="top js-header"><a class="logo" href="https://babfo.org/"><img src="https://babfo.org/media/website/babfo-logo.png" alt="BABFO" width="500" height="500"></a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://babfo.org/" target="_self">Home</a></li><li><a href="https://babfo.org/about/" target="_self">About</a></li><li><a href="https://babfo.org/home-page/" target="_self">Blog</a></li></ul></nav></header><main class="page page--tags"><div class="hero hero--noimage"><header class="hero__content hero__content--centered"><div class="wrapper"><h1>Tags</h1><p class="page__desc">Collection of all 0 tags</p></div></header></div><div class="wrapper"><ul class="feed feed--grid"></ul></div></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Thank you for visiting - Be A Blessings For Others</p></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://babfo.org/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://babfo.org/assets/js/scripts.min.js?v=700105c316933a8202041b6415abb233"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {
                 images[i].classList.add('is-loaded');
@@ -256,16 +237,4 @@ body {
                     this.classList.add('is-loaded');
                 }, false);
             }
-        }</script><style>/* Footer styling to match header */
-.site-footer,
-footer {
-  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-  color: white;
-  padding: 2rem 0;
-  margin-top: 3rem;
-}
-
-.site-footer a,
-footer a {
-  color: white;
-}</style></body></html>
+        }</script></body></html>
