@@ -14,7 +14,7 @@ header {
   box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important;
 }
 
-/* FIXED: Custom header layout - Logo LEFT, Menu RIGHT */
+/* Custom header layout - Logo LEFT, Menu RIGHT */
 .babfo-custom-header {
   display: flex !important;
   justify-content: space-between !important;
@@ -24,15 +24,16 @@ header {
   padding: 0 2rem !important;
   height: 70px !important;
   width: 100% !important;
+  position: relative !important;
 }
 
-/* FIXED: Logo section on LEFT */
+/* Logo section on LEFT */
 .babfo-logo-left {
   display: flex !important;
   align-items: center !important;
   gap: 15px !important;
   flex: 0 0 auto !important;
-  order: 1 !important; /* Logo stays on left */
+  order: 1 !important;
 }
 
 .babfo-logo-left img {
@@ -50,7 +51,7 @@ header {
   white-space: nowrap !important;
 }
 
-/* FIXED: Menu on RIGHT */
+/* Desktop Menu on RIGHT */
 .babfo-menu-right {
   display: flex !important;
   gap: 0.5rem !important;
@@ -58,8 +59,8 @@ header {
   margin: 0 !important;
   padding: 0 !important;
   flex: 0 0 auto !important;
-  order: 3 !important; /* Menu stays on right */
-  margin-left: auto !important; /* Push to right edge */
+  order: 3 !important;
+  margin-left: auto !important;
 }
 
 .babfo-menu-right a {
@@ -76,7 +77,7 @@ header {
   background: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* FIXED: Mobile hamburger menu - positioned on RIGHT for mobile */
+/* Mobile hamburger menu button */
 .babfo-mobile-menu {
   display: none !important;
   flex-direction: column !important;
@@ -90,8 +91,9 @@ header {
   align-items: center !important;
   cursor: pointer !important;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
-  order: 3 !important; /* On right side for mobile */
+  order: 3 !important;
   margin-left: auto !important;
+  transition: all 0.3s ease !important;
 }
 
 .babfo-mobile-menu span {
@@ -103,13 +105,68 @@ header {
   transition: all 0.3s ease !important;
 }
 
+/* FIXED: Mobile menu animation when active */
+.babfo-mobile-menu.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px) !important;
+}
+
+.babfo-mobile-menu.active span:nth-child(2) {
+  opacity: 0 !important;
+}
+
+.babfo-mobile-menu.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px) !important;
+}
+
+/* FIXED: Mobile dropdown menu */
+.babfo-mobile-dropdown {
+  position: absolute !important;
+  top: 70px !important;
+  right: 0 !important;
+  background: white !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+  border-radius: 8px !important;
+  min-width: 200px !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(-10px) !important;
+  transition: all 0.3s ease !important;
+  z-index: 1001 !important;
+  margin-right: 2rem !important;
+}
+
+.babfo-mobile-dropdown.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+.babfo-mobile-dropdown a {
+  display: block !important;
+  padding: 1rem 1.5rem !important;
+  color: #333 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  border-bottom: 1px solid #eee !important;
+  transition: all 0.3s ease !important;
+}
+
+.babfo-mobile-dropdown a:last-child {
+  border-bottom: none !important;
+}
+
+.babfo-mobile-dropdown a:hover {
+  background: #f8f9fa !important;
+  color: #4a90e2 !important;
+}
+
 /* Hide original header content */
 .header > *:not(.babfo-custom-header),
 .site-header > *:not(.babfo-custom-header) {
   display: none !important;
 }
 
-/* Hide page titles that might appear in header area */
+/* Hide page titles */
 .page-title,
 .entry-title,
 .post-title,
@@ -119,7 +176,7 @@ h1.title,
   display: none !important;
 }
 
-/* Body spacing to account for fixed header */
+/* Body spacing */
 body {
   padding-top: 70px !important;
   margin-top: 0 !important;
@@ -132,7 +189,7 @@ body {
   padding-top: 2rem !important;
 }
 
-/* FIXED: Mobile responsive layout */
+/* Mobile responsive layout */
 @media (max-width: 768px) {
   .babfo-custom-header {
     padding: 0 1rem !important;
@@ -156,11 +213,6 @@ body {
   .babfo-logo-left img {
     max-height: 40px !important;
   }
-  
-  /* Ensure proper spacing between logo and hamburger */
-  .babfo-mobile-menu {
-    margin-left: auto !important;
-  }
 }
 
 /* Ensure header is always visible */
@@ -169,6 +221,25 @@ body {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+}
+
+/* FIXED: Click outside to close mobile menu */
+.babfo-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0,0,0,0.3) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: all 0.3s ease !important;
+  z-index: 999 !important;
+}
+
+.babfo-overlay.show {
+  opacity: 1 !important;
+  visibility: visible !important;
 }</style><script>document.addEventListener('DOMContentLoaded', function() {
   // Wait a bit for page to load
   setTimeout(function() {
@@ -200,7 +271,7 @@ body {
         <a href="/blog/">Blog</a>
       `;
       
-      // Create mobile menu button (will be on RIGHT in mobile)
+      // Create mobile menu button
       const mobileMenu = document.createElement('button');
       mobileMenu.className = 'babfo-mobile-menu';
       mobileMenu.innerHTML = `
@@ -209,21 +280,81 @@ body {
         <span></span>
       `;
       
-      // Add elements to header in correct order
+      // FIXED: Create mobile dropdown menu
+      const mobileDropdown = document.createElement('div');
+      mobileDropdown.className = 'babfo-mobile-dropdown';
+      mobileDropdown.innerHTML = `
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+      `;
+      
+      // FIXED: Create overlay for click outside to close
+      const overlay = document.createElement('div');
+      overlay.className = 'babfo-overlay';
+      
+      // Add elements to header
       customHeader.appendChild(logoLeft);
       customHeader.appendChild(menuRight);
       customHeader.appendChild(mobileMenu);
+      customHeader.appendChild(mobileDropdown);
       
-      // Insert into header
+      // Insert into header and body
       header.appendChild(customHeader);
+      document.body.appendChild(overlay);
       
-      // Add mobile menu click functionality (optional)
-      mobileMenu.addEventListener('click', function() {
-        // Add your mobile menu toggle logic here
-        console.log('Mobile menu clicked');
+      // FIXED: Add mobile menu functionality
+      let isMenuOpen = false;
+      
+      mobileMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMobileMenu();
       });
       
-      console.log('BABFO Header: Successfully created custom header layout');
+      // FIXED: Close menu when clicking outside
+      overlay.addEventListener('click', function() {
+        closeMobileMenu();
+      });
+      
+      // FIXED: Close menu when clicking on menu items
+      mobileDropdown.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') {
+          closeMobileMenu();
+        }
+      });
+      
+      // FIXED: Close menu on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isMenuOpen) {
+          closeMobileMenu();
+        }
+      });
+      
+      function toggleMobileMenu() {
+        if (isMenuOpen) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      }
+      
+      function openMobileMenu() {
+        isMenuOpen = true;
+        mobileMenu.classList.add('active');
+        mobileDropdown.classList.add('show');
+        overlay.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+      
+      function closeMobileMenu() {
+        isMenuOpen = false;
+        mobileMenu.classList.remove('active');
+        mobileDropdown.classList.remove('show');
+        overlay.classList.remove('show');
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+      
+      console.log('BABFO Header: Successfully created working hamburger menu');
     } else {
       console.log('BABFO Header: No header element found');
     }
@@ -300,4 +431,376 @@ body {
                     this.classList.add('is-loaded');
                 }, false);
             }
-        }</script></body></html>
+        }</script><style>/* Footer styling to match header */
+.babfo-custom-footer {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%) !important;
+  color: white !important;
+  margin-top: 4rem !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Footer main content */
+.babfo-footer-main {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 3rem 2rem !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 2rem !important;
+}
+
+/* Footer sections */
+.babfo-footer-section h3 {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.babfo-footer-section p,
+.babfo-footer-section a {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-decoration: none !important;
+  line-height: 1.6 !important;
+  font-size: 0.95rem !important;
+  margin-bottom: 0.5rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.babfo-footer-section a:hover {
+  color: white !important;
+  transform: translateX(5px) !important;
+}
+
+/* Logo section */
+.babfo-footer-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.babfo-footer-logo img {
+  max-height: 60px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.babfo-footer-logo-text {
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Quick links styling */
+.babfo-footer-links {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+.babfo-footer-links a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.3rem 0 !important;
+}
+
+.babfo-footer-links a::before {
+  content: '→' !important;
+  font-weight: bold !important;
+  transition: transform 0.3s ease !important;
+}
+
+.babfo-footer-links a:hover::before {
+  transform: translateX(3px) !important;
+}
+
+/* Contact info styling */
+.babfo-contact-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.babfo-contact-icon {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 50% !important;
+  width: 35px !important;
+  height: 35px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* Social media links */
+.babfo-social-links {
+  display: flex !important;
+  gap: 1rem !important;
+  margin-top: 1rem !important;
+  flex-wrap: wrap !important;
+}
+
+.babfo-social-link {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  width: 45px !important;
+  height: 45px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  font-size: 1.2rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.babfo-social-link:hover {
+  background: white !important;
+  color: #4a90e2 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+}
+
+/* Newsletter signup */
+.babfo-newsletter {
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 1.5rem !important;
+  border-radius: 12px !important;
+  margin-top: 1rem !important;
+}
+
+.babfo-newsletter-form {
+  display: flex !important;
+  gap: 0.5rem !important;
+  margin-top: 1rem !important;
+}
+
+.babfo-newsletter-input {
+  flex: 1 !important;
+  padding: 0.75rem !important;
+  border: none !important;
+  border-radius: 8px !important;
+  background: white !important;
+  color: #333 !important;
+  font-size: 0.95rem !important;
+}
+
+.babfo-newsletter-input::placeholder {
+  color: #666 !important;
+}
+
+.babfo-newsletter-btn {
+  background: #357abd !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.babfo-newsletter-btn:hover {
+  background: #2a5a8f !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Footer bottom */
+.babfo-footer-bottom {
+  background: rgba(0, 0, 0, 0.2) !important;
+  padding: 1.5rem 2rem !important;
+  text-align: center !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.babfo-footer-bottom-content {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 1rem !important;
+}
+
+.babfo-footer-copyright {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.9rem !important;
+}
+
+.babfo-footer-legal {
+  display: flex !important;
+  gap: 1.5rem !important;
+  flex-wrap: wrap !important;
+}
+
+.babfo-footer-legal a {
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-decoration: none !important;
+  font-size: 0.9rem !important;
+  transition: color 0.3s ease !important;
+}
+
+.babfo-footer-legal a:hover {
+  color: white !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .babfo-footer-main {
+    grid-template-columns: 1fr !important;
+    padding: 2rem 1rem !important;
+    gap: 2rem !important;
+  }
+  
+  .babfo-newsletter-form {
+    flex-direction: column !important;
+  }
+  
+  .babfo-footer-bottom-content {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  
+  .babfo-footer-legal {
+    justify-content: center !important;
+  }
+}
+
+/* Hide default footer if exists */
+.footer,
+.site-footer,
+footer:not(.babfo-custom-footer) {
+  display: none !important;
+}</style><script>document.addEventListener('DOMContentLoaded', function() {
+  // Wait for page to load
+  setTimeout(function() {
+    // Remove existing footer if any
+    const existingFooters = document.querySelectorAll('.footer, .site-footer, footer:not(.babfo-custom-footer)');
+    existingFooters.forEach(footer => {
+      if (!footer.classList.contains('babfo-custom-footer')) {
+        footer.style.display = 'none';
+      }
+    });
+    
+    // Create footer
+    const footer = document.createElement('footer');
+    footer.className = 'babfo-custom-footer';
+    
+    footer.innerHTML = `
+      <div class="babfo-footer-main">
+        <!-- About Section -->
+        <div class="babfo-footer-section">
+          <div class="babfo-footer-logo">
+            <img src="https://babfo.org/media/website/babfo-logo.png" alt="BABFO Logo">
+            <a href="/" class="babfo-footer-logo-text">BABFO</a>
+          </div>
+          <p>Building A Better Future Together through innovation, community empowerment, and sustainable solutions that transform lives and strengthen communities.</p>
+          
+          <div class="babfo-social-links">
+            <a href="#" class="babfo-social-link" title="Facebook">📘</a>
+            <a href="#" class="babfo-social-link" title="Twitter">🐦</a>
+            <a href="#" class="babfo-social-link" title="Instagram">📷</a>
+            <a href="#" class="babfo-social-link" title="LinkedIn">💼</a>
+            <a href="#" class="babfo-social-link" title="YouTube">📺</a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="babfo-footer-section">
+          <h3>🔗 Quick Links</h3>
+          <div class="babfo-footer-links">
+            <a href="/">Home</a>
+            <a href="/about/">About Us</a>
+            <a href="/blog/">Blog</a>
+            <a href="/programs/">Programs</a>
+            <a href="/get-involved/">Get Involved</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="babfo-footer-section">
+          <h3>📞 Contact Info</h3>
+          <div class="babfo-contact-item">
+            <div class="babfo-contact-icon">📍</div>
+            <div>
+              <strong>Address:</strong><br>
+              123 Community Street<br>
+              Miri, Sarawak, Malaysia
+            </div>
+          </div>
+          <div class="babfo-contact-item">
+            <div class="babfo-contact-icon">📧</div>
+            <div>
+              <strong>Email:</strong><br>
+              <a href="mailto:info@babfo.org">info@babfo.org</a>
+            </div>
+          </div>
+          <div class="babfo-contact-item">
+            <div class="babfo-contact-icon">📱</div>
+            <div>
+              <strong>Phone:</strong><br>
+              <a href="tel:+60123456789">+60 12-345 6789</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Newsletter -->
+        <div class="babfo-footer-section">
+          <h3>📬 Stay Connected</h3>
+          <p>Subscribe to our newsletter for updates on our programs and community initiatives.</p>
+          <div class="babfo-newsletter">
+            <strong>Get Updates</strong>
+            <form class="babfo-newsletter-form" onsubmit="handleNewsletter(event)">
+              <input type="email" class="babfo-newsletter-input" placeholder="Enter your email" required>
+              <button type="submit" class="babfo-newsletter-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="babfo-footer-bottom">
+        <div class="babfo-footer-bottom-content">
+          <div class="babfo-footer-copyright">
+            © ${new Date().getFullYear()} BABFO - Building A Better Future Organization. All rights reserved.
+          </div>
+          <div class="babfo-footer-legal">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/sitemap/">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    // Append footer to body
+    document.body.appendChild(footer);
+    
+    console.log('BABFO Footer: Successfully created matching footer');
+  }, 500);
+});
+
+// Newsletter subscription handler
+function handleNewsletter(event) {
+  event.preventDefault();
+  const email = event.target.querySelector('.babfo-newsletter-input').value;
+  
+  // Show success message
+  alert('Thank you for subscribing! We\'ll keep you updated on our latest programs and initiatives.');
+  
+  // Clear the input
+  event.target.querySelector('.babfo-newsletter-input').value = '';
+  
+  // Here you would typically send the email to your newsletter service
+  console.log('Newsletter subscription:', email);
+}</script></body></html>
