@@ -5,6 +5,7 @@
     "home_page_url": "https://babfo.org",
     "feed_url": "https://babfo.org/feed.json",
     "user_comment": "",
+    "icon": "https://babfo.org/media/website/babfo-logo.png",
     "author": {
         "name": "Thatea Fanai"
     },
