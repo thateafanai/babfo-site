@@ -1,106 +1,82 @@
 <!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Author: Thatea Fanai - BABFO</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://babfo.org/feed.xml" title="BABFO - RSS"><link rel="alternate" type="application/json" href="https://babfo.org/feed.json" title="BABFO - JSON"><meta property="og:title" content="Thatea Fanai"><meta property="og:site_name" content="BABFO"><meta property="og:description" content=""><meta property="og:url" content="https://babfo.org/authors/thatea-fanai/"><meta property="og:type" content="website"><link rel="shortcut icon" href="https://babfo.org/media/website/Favicon.png" type="image/png"><link rel="stylesheet" href="https://babfo.org/assets/css/style.css?v=c26e0a543d70124c664f25159a0c25b0"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"BABFO","url":"https://babfo.org/"}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet"><style>/* Emergency CSS Overrides */
-/* Hide ALL default Technews buttons */
-.js__nav-btn,
-.nav-btn,
-.js-nav-btn,
-.sidebar-btn,
-.js-sidebar-btn,
-.js__sidebar-btn,
-button.nav-toggle,
-.mobile-nav-toggle,
-.navbar__toggle,
-.navbar-toggle,
-.header__toggle,
-.header-toggle,
-.menu-toggle,
-.menu__toggle,
-button[class*="nav-btn"],
-button[class*="toggle"]:not(.babfo-mobile-menu) {
-  display: none !important;
-  visibility: hidden !important;
-  position: absolute !important;
-  left: -9999px !important;
+                }</style></noscript><style>/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Fix body padding */
-body {
-  padding-top: 70px !important;
+/* Custom Header Creation */
+.babfo-header {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
 }
 
-/* Logo sizing - IMPORTANT */
-.logo img,
-.header__logo img,
-.logo-container img {
-  max-height: 45px !important;
-  width: auto !important;
-  display: block;
+.babfo-header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Logo container styling */
-.logo-container {
+.babfo-logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
 }
 
-/* BABFO text next to logo - WHITE COLOR */
-.logo-text {
+.babfo-logo img {
+  max-height: 45px;
+  width: auto;
+}
+
+.babfo-logo-text {
   font-size: 1.8rem;
   font-weight: 800;
-  color: white !important; /* Ensured to stay white */
+  color: white;
   letter-spacing: -0.5px;
   text-decoration: none;
 }
 
-/* If header has blue background */
-.header {
-  background: #4a90e2 !important; /* Matching your blue header */
+.babfo-nav {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
 }
 
-/* Make sure nav links are white on blue background */
-.navbar a,
-.menu a,
-nav a {
-  color: white !important;
-  text-decoration: none !important;
+.babfo-nav a {
+  color: white;
+  text-decoration: none;
   padding: 0.6rem 1.5rem;
   border-radius: 25px;
   font-weight: 500;
-  font-size: 1rem;
   transition: all 0.3s ease;
-  display: inline-block;
-  white-space: nowrap;
 }
 
-.navbar a:hover,
-.menu a:hover,
-nav a:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
-  color: white !important;
+.babfo-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
-.navbar .active a,
-.menu .active a,
-.is-active {
-  background: rgba(255, 255, 255, 0.3) !important;
-  color: white !important;
-}
-
-/* Mobile menu button styling - WHITE VERSION */
+/* Mobile Menu Button */
 .babfo-mobile-menu {
   display: none;
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   border: none;
   border-radius: 8px;
   padding: 8px;
   cursor: pointer;
-  position: absolute; /* Changed to absolute for header confinement */
-  right: 15px;
-  top: 50%; /* Centered vertically */
-  transform: translateY(-50%); /* Adjust for perfect centering */
-  z-index: 10001;
   width: 45px;
   height: 45px;
   justify-content: center;
@@ -114,105 +90,120 @@ nav a:hover {
   width: 22px;
   height: 3px;
   background: #4a90e2;
-  margin: 3px 0; /* Adjusted margin for better vertical spacing */
+  margin: 3px 0;
   transition: all 0.3s ease;
   border-radius: 3px;
 }
 
-.babfo-mobile-menu.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+/* Body spacing for fixed header */
+body {
+  padding-top: 70px !important;
 }
 
-.babfo-mobile-menu.active span:nth-child(2) {
-  opacity: 0;
+/* Hide original theme header */
+.header,
+.site-header,
+header,
+.top-header {
+  display: none !important;
 }
 
-.babfo-mobile-menu.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* Mobile menu visibility */
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .babfo-mobile-menu {
-    display: flex !important;
+    display: flex;
   }
   
-  /* Logo text smaller on mobile */
-  .logo-text {
+  .babfo-nav {
+    display: none;
+  }
+  
+  .babfo-logo-text {
     font-size: 1.5rem;
   }
   
-  /* Logo smaller on mobile */
-  .logo img,
-  .header__logo img,
-  .logo-container img {
-    max-height: 35px !important;
-  }
-  
-  /* Hide desktop nav by default on mobile */
-  .navbar,
-  .navbar__menu,
-  .menu,
-  .header__nav,
-  .header nav,
-  nav ul {
-    display: none !important;
-  }
-  
-  /* Show menu when active */
-  body.menu-open .navbar,
-  body.menu-open .navbar__menu,
-  body.menu-open .menu,
-  body.menu-open .header__nav,
-  body.menu-open .header nav,
-  body.menu-open nav ul {
-    display: flex !important;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: white !important;
-    flex-direction: column;
-    padding: 1rem;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    z-index: 10000;
-  }
-  
-  /* Mobile menu links */
-  body.menu-open .navbar a,
-  body.menu-open .menu a,
-  body.menu-open nav a {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 0.75rem;
-    margin: 0.25rem 0;
-    background: #f8f9fa !important;
-    color: #1e3a5f !important;
-    border-radius: 8px;
-  }
-  
-  body.menu-open .navbar a:hover,
-  body.menu-open .menu a:hover,
-  body.menu-open nav a:hover {
-    background: #4a90e2 !important;
-    color: white !important;
+  .babfo-logo img {
+    max-height: 35px;
   }
 }
 
-/* Ensure desktop nav is visible */
-@media (min-width: 769px) {
-  .navbar,
-  .navbar__menu,
-  .menu,
-  .header__nav,
-  .header nav,
-  nav ul {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-}</style></head><body class="author-template"><header class="top js-header"><a class="logo" href="https://babfo.org/">BABFO</a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://babfo.org/" target="_self">Home</a></li><li><a href="https://babfo.org/about/" target="_self">About</a></li><li><a href="https://babfo.org/home-page/" target="_self">Blog</a></li></ul></nav></header><main class="page page--author"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper page--author__wrapper"><div><h1>Thatea Fanai <sup>(1)</sup></h1></div></div></header></div><div class="wrapper feed"><article class="feed__item"><div class="feed__content"><header><div class="feed__meta"><a href="https://babfo.org/authors/thatea-fanai/" class="feed__author">Thatea Fanai</a> <time datetime="2025-09-16T12:01" class="feed__date">September 16, 2025</time></div><h2 class="feed__title"><a href="https://babfo.org/be-a-blessing-for-others-2/">Be A Blessing For Others</a></h2></header><p>Gen. 12:1-5 Now the Lord said to Abram, “Go from your country and your kindred and your father’s house to the land that I will show you. 2 I will make of you a great nation, and I will bless you, and make your name great,&hellip;</p><a href="https://babfo.org/be-a-blessing-for-others-2/" class="readmore feed__readmore">Continue reading...</a></div></article></div></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Thank you for visiting - Be A Blessings For Others</p></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://babfo.org/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://babfo.org/assets/js/scripts.min.js?v=700105c316933a8202041b6415abb233"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
+/* Mobile Menu Dropdown */
+.babfo-mobile-nav {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+.babfo-mobile-nav.active {
+  display: block;
+}
+
+.babfo-mobile-nav a {
+  display: block;
+  padding: 1rem 2rem;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+}
+
+.babfo-mobile-nav a:hover {
+  background: #f5f5f5;
+}</style><script>document.addEventListener('DOMContentLoaded', function() {
+  // Create header HTML
+  const headerHTML = `
+    <header class="babfo-header">
+      <div class="babfo-header-inner">
+        <a href="/" class="babfo-logo">
+          <img src="https://raw.githubusercontent.com/thateafanai/babfo-site/main/input/media/website/babfo-logo.png" alt="BABFO Logo">
+          <span class="babfo-logo-text">BABFO</span>
+        </a>
+        
+        <nav class="babfo-nav">
+          <a href="/">Home</a>
+          <a href="/personal/">Personal</a>
+          <a href="/utilities/">Utilities</a>
+          <a href="/graphics/">Graphics</a>
+          <a href="/social-network/">Social Network</a>
+          <a href="/development/">Development</a>
+          <a href="/mission/">Mission</a>
+        </nav>
+        
+        <button class="babfo-mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+    
+    <div class="babfo-mobile-nav">
+      <a href="/">Home</a>
+      <a href="/personal/">Personal</a>
+      <a href="/utilities/">Utilities</a>
+      <a href="/graphics/">Graphics</a>
+      <a href="/social-network/">Social Network</a>
+      <a href="/development/">Development</a>
+      <a href="/mission/">Mission</a>
+    </div>
+  `;
+  
+  // Insert header at the beginning of body
+  document.body.insertAdjacentHTML('afterbegin', headerHTML);
+  
+  // Mobile menu functionality
+  const mobileMenuBtn = document.querySelector('.babfo-mobile-menu');
+  const mobileNav = document.querySelector('.babfo-mobile-nav');
+  
+  mobileMenuBtn.addEventListener('click', function() {
+    mobileNav.classList.toggle('active');
+    this.classList.toggle('active');
+  });
+});</script></head><body class="author-template"><header class="top js-header"><a class="logo" href="https://babfo.org/">BABFO</a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://babfo.org/" target="_self">Home</a></li><li><a href="https://babfo.org/about/" target="_self">About</a></li><li><a href="https://babfo.org/home-page/" target="_self">Blog</a></li></ul></nav></header><main class="page page--author"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper page--author__wrapper"><div><h1>Thatea Fanai <sup>(1)</sup></h1></div></div></header></div><div class="wrapper feed"><article class="feed__item"><div class="feed__content"><header><div class="feed__meta"><a href="https://babfo.org/authors/thatea-fanai/" class="feed__author">Thatea Fanai</a> <time datetime="2025-09-16T12:01" class="feed__date">September 16, 2025</time></div><h2 class="feed__title"><a href="https://babfo.org/be-a-blessing-for-others-2/">Be A Blessing For Others</a></h2></header><p>Gen. 12:1-5 Now the Lord said to Abram, “Go from your country and your kindred and your father’s house to the land that I will show you. 2 I will make of you a great nation, and I will bless you, and make your name great,&hellip;</p><a href="https://babfo.org/be-a-blessing-for-others-2/" class="readmore feed__readmore">Continue reading...</a></div></article></div></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Thank you for visiting - Be A Blessings For Others</p></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://babfo.org/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://babfo.org/assets/js/scripts.min.js?v=700105c316933a8202041b6415abb233"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {
                 images[i].classList.add('is-loaded');
@@ -221,92 +212,16 @@ nav a:hover {
                     this.classList.add('is-loaded');
                 }, false);
             }
-        }</script><script>// Complete JavaScript Solution - Fixed
-(function() {
-    'use strict';
-    
-    // Wait for page to load
-    window.addEventListener('load', function() {
-        console.log('BABFO: Initializing navigation...');
-        
-        // Fix logo and add BABFO text
-        const logoImg = document.querySelector('.logo img, .header__logo img, .logo a img');
-        if (logoImg && !document.querySelector('.logo-text')) {
-            // Make sure logo is properly sized
-            logoImg.style.maxHeight = '45px';
-            logoImg.style.width = 'auto';
-            
-            // Create container if needed
-            let container = logoImg.closest('.logo-container');
-            if (!container) {
-                container = document.createElement('div');
-                container.className = 'logo-container';
-                
-                // Wrap the logo
-                const logoParent = logoImg.parentElement;
-                logoParent.insertBefore(container, logoImg);
-                container.appendChild(logoImg);
-            }
-            
-            // Add BABFO text
-            const logoText = document.createElement('span');
-            logoText.className = 'logo-text';
-            logoText.textContent = 'BABFO';
-            container.appendChild(logoText);
-        }
-        
-        // Create mobile menu button if it doesn't exist
-        let mobileBtn = document.querySelector('.babfo-mobile-menu');
-        if (!mobileBtn) {
-            mobileBtn = document.createElement('button');
-            mobileBtn.className = 'babfo-mobile-menu';
-            mobileBtn.setAttribute('aria-label', 'Menu');
-            mobileBtn.innerHTML = '<span></span><span></span><span></span>';
-            document.body.appendChild(mobileBtn);
-            
-            // Add click handler
-            mobileBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                document.body.classList.toggle('menu-open');
-                this.classList.toggle('active');
-            });
-        }
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.babfo-mobile-menu') && 
-                !e.target.closest('.navbar') && 
-                !e.target.closest('.menu')) {
-                document.body.classList.remove('menu-open');
-                const btn = document.querySelector('.babfo-mobile-menu');
-                if (btn) btn.classList.remove('active');
-            }
-        });
-        
-        // Close menu when clicking a link
-        document.querySelectorAll('.navbar a, .menu a, nav a').forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    document.body.classList.remove('menu-open');
-                    const btn = document.querySelector('.babfo-mobile-menu');
-                    if (btn) btn.classList.remove('active');
-                }
-            });
-        });
-        
-        // Handle resize
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                if (window.innerWidth > 768) {
-                    document.body.classList.remove('menu-open');
-                    const btn = document.querySelector('.babfo-mobile-menu');
-                    if (btn) btn.classList.remove('active');
-                }
-            }, 250);
-        });
-        
-        console.log('BABFO: Navigation initialized successfully!');
-    });
-})();</script></body></html>
+        }</script><style>/* Footer styling to match header */
+.site-footer,
+footer {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.site-footer a,
+footer a {
+  color: white;
+}</style></body></html>
